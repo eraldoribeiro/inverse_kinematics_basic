@@ -28,7 +28,7 @@ The forward-kinematics function calculates the pose of the robot arm given a set
 $$
 \begin{align}
         {\bf \Phi} = f^{-1}\left({\bf e}\right).
-	\label{ik}
+	%\label{ik}
 \end{align}
 $$
 
@@ -55,7 +55,7 @@ $$
           	 \dfrac{\partial e_y}{\partial\phi_1}  & \dfrac{\partial e_y}{\partial\phi_2}   & \dfrac{\partial e_y}{\partial\phi_3}  & \dfrac{\partial e_y}{\partial\phi_4}\\[1em]	 
           	 \dfrac{\partial e_z}{\partial\phi_1}  & \dfrac{\partial e_z}{\partial\phi_2}   & \dfrac{\partial e_z}{\partial\phi_3}  & \dfrac{\partial e_z}{\partial\phi_4}	 
 	 \end{bmatrix}.          
-	\label{jacobian_e}
+	%\label{jacobian_e}
 \end{align}
 $$
 
@@ -72,7 +72,7 @@ $$
           	 \dfrac{\Delta e_y}{\Delta\phi_1}  & \dfrac{\Delta e_y}{\Delta\phi_2}   & \dfrac{\Delta e_y}{\Delta\phi_3}  & \dfrac{\Delta e_y}{\Delta\phi_4}\\[1em]	 
           	 \dfrac{\Delta e_z}{\Delta\phi_1}  & \dfrac{\Delta e_z}{\Delta\phi_2}   & \dfrac{\Delta e_z}{\Delta\phi_3}  & \dfrac{\Delta e_z}{\Delta\phi_4}	 
 	 \end{bmatrix}.          
-	\label{jacobian_e_approx}
+	%\label{jacobian_e_approx}
 \end{align}
 $$
 
@@ -81,7 +81,7 @@ for a small $\Delta \phi_i, i=1,\dots,4$, where the elements of the matrix in ($
 $$
 \begin{align}
         \frac{\Delta {\bf e}}{\Delta \phi_i} = \frac{{\bf e}\left({\bf \Phi}+\Delta \phi_i\right) - {\bf e}\left({\bf \Phi}\right)}{\Delta \phi_i},
-	\label{approxExample}
+	%\label{approxExample}
 \end{align}	
 $$
 
@@ -98,7 +98,7 @@ $$
        		\Delta \phi_1\\   0\\ 0\\   0
        \end{bmatrix}      
       \right),
-	\label{incrementPhi}
+	%\label{incrementPhi}
 \end{align}
 $$
 
@@ -116,7 +116,7 @@ $$
        		0\\   \Delta \phi_2\\ 0\\   0
        \end{bmatrix}      
       \right).
-	\label{incrementPhi2}
+	%\label{incrementPhi2}
 \end{align}
 $$
 
@@ -170,7 +170,7 @@ $$
                \begin{bmatrix}
                		-0.0026\\   5.9497\\ 0
                \end{bmatrix}.
-	\label{approxExampleNumerical}
+	%\label{approxExampleNumerical}
 \end{align}
 $$
 
@@ -185,7 +185,7 @@ $$
     5.9497    &     0     &    0    &     0\\
          0   &-5.9513  & -1.7068 &  -0.7068
 	 \end{bmatrix*}.          
-	\label{jacobian_e_approx_numbers}
+	%\label{jacobian_e_approx_numbers}
 \end{align}
 $$
 
@@ -200,7 +200,7 @@ Let $\Delta {\bf \Phi}$ be a vector representing a small change in joint-angle v
 $$
 \begin{align}
           \frac{\Delta{\bf e}}{\Delta {\bf \Phi}} &\approx \frac{d\bf e}{d\bf \Phi}.
-          \label{end_effector_change_dPhi}
+          %\label{end_effector_change_dPhi}
 \end{align}
 $$
 
@@ -209,7 +209,7 @@ We can then re-arrange the above equation to obtain an expression for the approx
 $$
 \begin{align}
           {\Delta{\bf e}} &\approx \frac{d\bf e}{d\bf \Phi}\cdot \Delta {\bf \Phi}.
-          \label{end_effector_change_dPhi2}
+         % \label{end_effector_change_dPhi2}
 \end{align}
 $$
 
@@ -219,7 +219,7 @@ $$
 \begin{align}
           {\Delta{\bf e}} &\approx 	J\left({\bf e},{\bf \Phi}\right) \cdot \Delta {\bf \Phi}  \notag \\
 &\approx 	{J} \cdot \Delta {\bf \Phi}.
-          \label{end_effector_change_dPhi4}
+          %\label{end_effector_change_dPhi4}
 \end{align}
 $$
 
@@ -229,7 +229,7 @@ $$
 \begin{align}
            \Delta{\bf e} &\approx {J} \cdot \Delta {\bf \Phi}  \notag\\        
             \Delta {\bf \Phi} &\approx  {J}^{-1} \cdot \Delta {\bf e}.
-          \label{end_effector_change_de}
+         % \label{end_effector_change_de}
 \end{align}
 $$
 
@@ -238,7 +238,7 @@ Often, the Jacobian matrix is not invertible. In fact, this is the case of the J
 $$
 \begin{align}
             \Delta {\bf \Phi} &\approx  {J}^{\dagger} \cdot \Delta {\bf e}, 
-          \label{end_effector_change_de_pseudo_inverse}
+          %\label{end_effector_change_de_pseudo_inverse}
 \end{align}
 $$
 
@@ -247,7 +247,7 @@ where:
 $$
 \begin{align}
             {J}^{\dagger} = VD^{-1}U^\mathsf{T}
-          \label{pseudo_inverse}
+         % \label{pseudo_inverse}
 \end{align}
 $$
 
@@ -262,7 +262,7 @@ Equation $\ref{end_effector_change_de}$ depends on the value $\Delta {\bf e}$, w
 $$
 \begin{align}
            \Delta{\bf e} = {\bf g}  - {\bf e}.
-          \label{Delta_e}
+          %\label{Delta_e}
 \end{align}
 $$
 
@@ -271,7 +271,7 @@ As in the derivation of the gradient descent for scalar functions, non-linearity
 $$
 \begin{align}
            \Delta{\bf e} = \lambda\left({\bf g}  - {\bf e}\right),
-          \label{Delta_e_beta}
+          %\label{Delta_e_beta}
 \end{align}
 $$
 
